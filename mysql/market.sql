@@ -47,4 +47,43 @@ INSERT INTO `tbl_sale_table_info` VALUES (9, '2019-03-26', 8000.00, 12.00, 12.00
 INSERT INTO `tbl_sale_table_info` VALUES (10, '2019-04-01', 10000.00, 12.00, 12.00, 12.00, 12.00);
 INSERT INTO `tbl_sale_table_info` VALUES (11, '2019-05-26', 1400.00, 12.00, 12.00, 12.00, 12.00);
 
+SELECT
+	CONVERT(DATE_FORMAT(date, '%Y'),SIGNED) AS year,
+	CONVERT(DATE_FORMAT(date, '%c'),SIGNED) AS month,
+	sum(total) AS money
+FROM
+	tbl_sale_table_info
+WHERE
+	DATE_FORMAT(date, '%Y-%m') BETWEEN '2018-12%' AND '2100-01%'
+GROUP BY
+	year, month
+ORDER BY
+	year asc, month asc;
+	
+SELECT
+	DATE_FORMAT(date, '%Y-%m') AS month,
+	sum(total) AS money
+FROM
+	tbl_sale_table_info
+WHERE
+	DATE_FORMAT(date, '%Y-%m') BETWEEN '2018-12%' AND '2100-01%'
+GROUP BY
+	month
+ORDER BY
+	month asc;
+	
+SELECT
+	CONVERT(DATE_FORMAT(date, '%Y'), SIGNED) AS year,
+	sum(total) AS total,
+	sum(collector) AS collector,
+	sum(cash) AS cash,
+	sum(wechat) AS wechat,
+	sum(alipay) AS alipay
+FROM
+	tbl_sale_table_info
+WHERE
+	DATE_FORMAT(date, '%Y') = '2019'
+GROUP BY
+	year;
+
 SET FOREIGN_KEY_CHECKS = 1;
