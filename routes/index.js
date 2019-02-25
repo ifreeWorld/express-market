@@ -13,5 +13,7 @@ router.get('/getSaleAnalysis', (req, res, next) => {
 
 router.get('/getSaleTableInfo', sale.getSaleTableInfo)
 router.post('/addSaleTableInfo', sale.addSaleTableInfo)
+router.post('/updateSaleTableInfo', sale.updateSaleTableInfo)
+router.post('/deleteSaleTableInfo', sale.deleteSaleTableInfo)
 
 module.exports = router
