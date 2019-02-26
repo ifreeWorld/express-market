@@ -54,7 +54,7 @@ SELECT
 FROM
 	tbl_sale_table_info
 WHERE
-	DATE_FORMAT(date, '%Y-%m') BETWEEN '2018-12%' AND '2100-01%'
+	DATE_FORMAT(date, '%Y-%m') BETWEEN '2019-01' AND '2100-01'
 GROUP BY
 	year, month
 ORDER BY
@@ -66,7 +66,7 @@ SELECT
 FROM
 	tbl_sale_table_info
 WHERE
-	DATE_FORMAT(date, '%Y-%m') BETWEEN '2018-12%' AND '2100-01%'
+	DATE_FORMAT(date, '%Y-%m') BETWEEN '2019-01' AND '2100-01'
 GROUP BY
 	month
 ORDER BY
